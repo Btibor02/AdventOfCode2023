@@ -12,6 +12,9 @@ public class DayTwo {
     private String[] draws;
     private Integer amount;
     private String color;
+    public Integer blue;
+    public Integer green;
+    public Integer red;
 
     public DayTwo(String filename) throws FileNotFoundException {
         File file = new File(filename);
@@ -28,9 +31,9 @@ public class DayTwo {
             round = line.split(":")[1].split(";");
             for (String s : round){
                 draws = s.split(",");
-                int blue = 0;
-                int red = 0;
-                int green = 0;
+                blue = 0;
+                red = 0;
+                green = 0;
                 for (String draw : draws) {
                     amount = Integer.parseInt(draw.split(" ")[1]);
                     color = draw.split(" ")[2];
@@ -52,7 +55,44 @@ public class DayTwo {
             }
         }
         scanner.close();
-        System.out.println(gameIDSum);
+        System.out.println("Day 2 - Part 1: " + gameIDSum);
     }
-    
+
+    public void partTwo() {
+        int powerOfSets = 0;
+        while (scanner1.hasNextLine()) {
+            String line = scanner1.nextLine();
+            blue = 0;
+            green = 0;
+            red = 0;
+            line = line.replace(";", ",");
+            draws = line.split(":")[1].split(",");
+            for (String draw : draws) {
+                amount = Integer.parseInt(draw.split(" ")[1]);
+                color = draw.split(" ")[2];
+                switch (color) {
+                    case "blue": {
+                        if (amount >= blue) {
+                            blue = amount;
+                        }
+                        amount = 0;
+                    }
+                    case "green": {
+                        if (amount >= green) {
+                            green = amount;
+                        }
+                        amount = 0;
+                    }
+                    case "red": {
+                        if (amount >= red) {
+                            red = amount;
+                        }
+                        amount = 0;
+                    }
+                }
+            }
+            powerOfSets += (blue * green * red);
+        }
+        System.out.println("Day 2 - Part 2 : " + powerOfSets);
+    }
 }

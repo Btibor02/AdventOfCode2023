@@ -35,7 +35,7 @@ public class DayOne {
             }
             sumOfNumber += Integer.parseInt(firstNumber + String.valueOf(lastNumber));
         }
-        System.out.println(sumOfNumber);
+        System.out.println("Day 1 - Part 1: " +  sumOfNumber);
         scanner.close();
     }
 
@@ -93,7 +93,7 @@ public class DayOne {
             sumOfNumber += Integer.parseInt(firstNumber + String.valueOf(lastNumber));
         }
         scanner.close();
-        System.out.println(sumOfNumber);
+        System.out.println("Day 1 - Part 2: " + sumOfNumber);
     }
 
 }

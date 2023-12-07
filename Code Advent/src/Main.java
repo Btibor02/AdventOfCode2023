@@ -10,6 +10,7 @@ public class Main {
 
         DayTwo dayTwo = new DayTwo("daytwo.txt");
         dayTwo.partOne();
+        dayTwo.partTwo();
     }
 }
 
