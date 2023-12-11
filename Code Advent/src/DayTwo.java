@@ -5,8 +5,8 @@ import java.util.Dictionary;
 import java.util.Scanner;
 
 public class DayTwo {
-    private Scanner scanner;
-    private Scanner scanner1;
+    private final Scanner scanner;
+    private final Scanner scanner1;
     private Integer gameID;
     private String[] round;
     private String[] draws;
